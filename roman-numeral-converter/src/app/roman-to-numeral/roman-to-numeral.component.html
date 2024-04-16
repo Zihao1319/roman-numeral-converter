@@ -1,0 +1,18 @@
+<div class ="converter__container">
+    <div>
+      <h2>Roman to Numeral Converter</h2>
+    </div>
+    <div>
+        <form class="form" [formGroup]="romanForm">
+            <mat-form-field>
+              <input matInput type="text" (change)="onValueChange($event)" formControlName="romanValue" placeholder="Key in any roman values..."/>
+              <mat-error *ngIf="romanForm.controls['romanValue'].hasError('required') || romanForm.controls['romanValue'].hasError('pattern')  ">
+                Please input valid roman numerals - I,V,X,L,C,D,M
+            </mat-error>
+            </mat-form-field>
+        </form>
+    </div>
+    <div class="result__container">
+      <p>Numerical Value: {{ numericalValue }}</p>
+    </div>
+</div>
